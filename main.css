@@ -918,13 +918,6 @@ footer {
 }
 /** end footer**/
 
-
-
-
-
-
-
-
 /****** \\\\ medai responsive //// ********/
 @media (max-width: 1098px) {
     nav .menu-all {
@@ -1030,13 +1023,52 @@ footer {
         width: 90%;
     }
     /*end about*/
+    .item-info::before {
+        left: 52%;
+        width: 14px;
+    }
+    .item-info .price {
+        padding-left: 45px;
+    }
+    .item-info .price::before  {
+        top: -90%;
+        left: 50%;
+    }
+    #submit input {
+        width: 50%;
+        left: 14%;
+    }
+    .adds-reservation {
+        height: 500px;
+    }
+    .adds-reservation .btn-ssbr {
+        top: 74%;
+        left: 24%;
+    }
+    .btn-review {
+        bottom: 5%;
+        left: 37%;
+    }
     /*start review*/
-    .review {
-        height: 45vh;
+    .info-review > p {
+        font-size: 14px;
     }
     /*end review*/
     .contact-content {
         grid-gap: 25px;
+        grid-template-columns: none;
+    }
+    .contact h2::before {
+        width: 330px;
+    }
+    .box-foot-two {
+        padding-left: 25px;
+    }
+    .box-foot-two h3 {
+        color: var(--clr-second);
+    }
+    .box-foot-two p {
+        font-size: 13px;
     }
     .contact-content .icon {
         width: 115%;
@@ -1045,3 +1077,4 @@ footer {
         width: 100%;
     }
 }
+
