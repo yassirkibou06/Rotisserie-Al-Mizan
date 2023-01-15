@@ -103,6 +103,7 @@ const menu = [
 
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
+const list = document.querySelectorAll(".filter-btn")
 // display all items when page loads
 window.addEventListener("DOMContentLoaded", function () {
   diplayMenuItems(menu);
@@ -111,7 +112,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
 function diplayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
-    // console.log(item);
+    //console.log(item);
 
     return `<article class="menu-item">
           <img src=${item.img} alt=${item.title} class="photo" />
@@ -127,7 +128,6 @@ function diplayMenuItems(menuItems) {
         </article>`;
   });
   displayMenu = displayMenu.join("");
-  // console.log(displayMenu);
 
   sectionCenter.innerHTML = displayMenu;
 }
@@ -141,9 +141,10 @@ function displayMenuButtons() {
     },
     ["all"]
   );
+
   const categoryBtns = categories
     .map(function (category) {
-      return `<button type="button" class="filter-btn " data-id=${category}>
+      return `<button type="button" class="filter-btn ${category === "all" ? "active" : ""}" data-id=${category}>
           ${category}
         </button>`;
       
@@ -156,10 +157,14 @@ function displayMenuButtons() {
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener("click", function (e) {
-      // console.log(e.currentTarget.dataset);
+      //console.log(e.currentTarget.dataset);
+      filterBtns.forEach((el) => {
+        el.classList.remove("active")
+      })
+      e.target.classList.add("active")
       const category = e.currentTarget.dataset.id;
       const menuCategory = menu.filter(function (menuItem) {
-        // console.log(menuItem.category);
+        //console.log(menuItem.category);
         if (menuItem.category === category) {
           return menuItem;
         }
@@ -171,6 +176,7 @@ function displayMenuButtons() {
       }
     });
   });
+
 }
 ////review start 
 const slideRev = document.querySelectorAll(".slide-review");
